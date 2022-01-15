@@ -1,9 +1,34 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import prisma from "../lib/prisma";
+import Header from "../components/header/Header";
 
-export default function Home() {
+export default function Home({ feed }) {
   return (
-    <h1 className='bg-blue-700 py-2 px-4 rounded-full color-white align-text-center' >Test Element</h1>
-  )
+    <div className="bg-black">
+      <Header />
+      {feed.map((post, index) => (
+        <li key={index}>
+          <div>
+            <h1>{post.title}</h1>
+            <h4>{post.content}</h4>
+          </div>
+          <div>
+            <h2>{post.published}</h2> -
+          </div>
+        </li>
+      ))}
+    </div>
+  );
 }
+
+export const getStaticProps = async () => {
+  const feed = await prisma.post.findMany({
+    where: { published: true },
+    include: {
+      author: {
+        select: { name: true },
+      },
+    },
+  });
+
+  return { props: { feed } };
+};
