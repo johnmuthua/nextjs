@@ -1,44 +1,30 @@
-import React from "react";
-import { Items } from "./HeaderItems";
-import {
-  FcSteam,
-  FcBullish,
-  FcSerialTasks,
-  FcHome,
-  FcFaq,
-  FcReading,
-} from "react-icons/fc";
+import { useState } from "react";
+import { FaBars } from "react-icons/fa";
+import Sidebar from "./Sidebar";
 
-const Header = () => {
+function Header() {
+  const [sideBar, setsideBar] = useState(false);
+  const handleSidebar = () => {
+    setsideBar(!sideBar);
+  };
   return (
-    <div>
-      <div>
-        <div className="text-white t-0 l-0 h-screen w-3/6 bg-blue-600 relative">
-          <div className="pt-4 pl-4">
-            <div className="bg-black mr-4 py-4 px-6 rounded-xl text-center">
-              Sign Up
-            </div>
-          </div>
-          <div className="mt-6 ml-4">
-            {Items.map((item) => (
-              <div className="flex flex-row items-center pt-2">
-                <span className="pr-2 text-xl">{item.icon}</span>
-                <h1 className="text">{item.name}</h1>
-              </div>
-            ))}
-          </div>
-        </div>
+    <nav>
+      <div className="bg-black fixed flex h-14 inset-x-0 items-center justify-between shadow-xl text-white top-0">
+        <div>Tucode</div>
+        <button
+          className="p-2 rounded-full transition hover:bg-blue-300"
+          onClick={handleSidebar}
+        >
+          <FaBars />
+        </button>
       </div>
-      <div className="py-6 bg-black">
-        <div className="flex justify-around text-white pb-2">
-          <div>rtrt</div>
-          <div>rtrt</div>
-          <div>rtrt</div>
-        </div>
-        <hr />
-      </div>
-    </div>
+      <Sidebar
+        handleSidebar={handleSidebar}
+        sideBar={sideBar}
+        setsideBar={setsideBar}
+      />
+    </nav>
   );
-};
+}
 
 export default Header;
