@@ -37,8 +37,11 @@ function Sidebar({ handleSidebar, sideBar, setsideBar }) {
             </div>
             <div className="flex flex-col text-white">
               <div className="mt-6 ml-4">
-                {Items.map((item) => (
-                  <div className="flex flex-row items-center pt-2 hover:bg-slate-600 hover:mr-4 hover:pl-2 hover:rounded-md hover:pb-1">
+                {Items.map((item, index) => (
+                  <div
+                    key={index}
+                    className="flex flex-row items-center pt-2 hover:bg-slate-600 hover:mr-4 hover:pl-2 hover:rounded-md hover:pb-1"
+                  >
                     <span className="pr-2 text-xl">{item.icon}</span>
                     <h1 className="text">{item.name}</h1>
                   </div>

@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 
 import { FiSave } from "react-icons/fi";
 import { RiDeleteBin2Fill } from "react-icons/ri";
@@ -11,9 +11,36 @@ import "katex/dist/katex.min.css";
 import Modal from "./Modal";
 
 const CodePage = () => {
-  const { question, handleOnChange, handleClick, modal } =
-    useContext(QuestionPage);
+  const {
+    question,
+    setQuestion,
+    handleOnChange,
+    handleClick,
+    modal,
+    handleSave,
+  } = useContext(QuestionPage);
 
+  const getFromStorage = () => {
+    const title = localStorage.getItem("2code_blog_title");
+    const content = localStorage.getItem("2code_blog_content");
+    if (title === null || title === undefined) {
+      const question = {
+        title: "",
+        content: "",
+      };
+      setQuestion(question);
+    } else {
+      question = {
+        title: JSON.parse(title),
+        content: JSON.parse(content),
+      };
+      setQuestion(question);
+    }
+  };
+
+  useEffect(() => {
+    getFromStorage();
+  }, []);
   return (
     <div>
       <div>{modal ? <Modal /> : null}</div>
@@ -34,7 +61,7 @@ const CodePage = () => {
               </div>
               <div>
                 <button
-                  onClick={() => alert("Click No")}
+                  // onClick={}
                   className="px-4 py-2 bg-green-500 text-sm text-white  rounded-md flex justify-center items-center hover:bg-transparent hover:text-green-500"
                 >
                   <AiOutlineAlignLeft className="mr-1" /> Publish
@@ -75,13 +102,13 @@ const CodePage = () => {
               <div className="flex justify-between">
                 <div></div>
                 <div className="flex ">
-                  <button className="px-4 py-2 mr-2 bg-blue-500 text-sm text-white rounded-md flex justify-center items-center hover:bg-transparent hover:text-green-500">
+                  <button
+                    onClick={handleSave}
+                    className="px-4 py-2 mr-2 bg-blue-500 text-sm text-white rounded-md flex justify-center items-center hover:bg-transparent hover:text-green-500"
+                  >
                     <FiSave className="mr-1" /> Save
                   </button>
-                  <button
-                    onhover={() => console.log("clicked")}
-                    className="px-4 py-2 bg-red-500 text-sm text-white  rounded-md flex justify-center items-center hover:bg-transparent hover:text-green-500"
-                  >
+                  <button className="px-4 py-2 bg-red-500 text-sm text-white  rounded-md flex justify-center items-center hover:bg-transparent hover:text-green-500">
                     <RiDeleteBin2Fill className="mr-1" /> Delete
                   </button>
                 </div>

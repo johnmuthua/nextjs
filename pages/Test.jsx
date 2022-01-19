@@ -7,11 +7,9 @@ import "katex/dist/katex.min.css";
 const Test = () => {
   return (
     <div>
-      <ReactMarkdown
-        children={`The lift coefficient ($C_L$) is a dimensionless coefficient.`}
-        remarkPlugins={[remarkMath]}
-        rehypePlugins={[rehypeKatex]}
-      />
+      <button className="bg-red-600" onClick={() => alert("Click No")}>
+        Click Me Here{" "}
+      </button>
     </div>
   );
 };

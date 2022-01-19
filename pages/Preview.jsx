@@ -1,16 +1,16 @@
-import { useContext, useState } from "react";
-
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
-
-import { QuestionPage } from "../../context/CodePageContext";
+import { QuestionPage } from "../context/CodePageContext";
 
 import "katex/dist/katex.min.css";
 import { FaTimes } from "react-icons/fa";
+import { useContext, useState } from "react";
 
-function Modal() {
-  const { question, handleClick } = useContext(QuestionPage);
+function Preview() {
+  const { question, handleOnChange } = useContext(QuestionPage);
+  console.log(question);
+  const text = "$f(x)=12^3x + 2_8log12$";
   return (
     <section>
       <div className="bg-black bg-opacity-50 absolute inset-0 flex justify-center items-center">
@@ -19,7 +19,7 @@ function Modal() {
             <div></div>
             <div>
               <button
-                onClick={handleClick}
+                onClick={() => setPreview(false)}
                 className="p-2 rounded-full text-red-700 top-4 left-12 transition hover:text-white hover:bg-red-800"
               >
                 <FaTimes />
@@ -27,10 +27,10 @@ function Modal() {
             </div>
           </div>
           <div className="p-2 rounded-lg m-1">
-            <h1 className="text-xl">{question.title}</h1>
+            <h1 className="text-xl"></h1>
             <p className="text-lg font-thin">
               <ReactMarkdown
-                children={question.content}
+                children={text}
                 remarkPlugins={[remarkMath]}
                 rehypePlugins={[rehypeKatex]}
               />
@@ -46,4 +46,4 @@ function Modal() {
   );
 }
 
-export default Modal;
+export default Preview;
