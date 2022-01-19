@@ -5,6 +5,8 @@ import {
   FcHome,
   FcFaq,
   FcReading,
+  FcCustomerSupport,
+  FcNook,
 } from "react-icons/fc";
 export const Items = [
   {
@@ -42,5 +44,18 @@ export const Items = [
     name: "Blog",
     icon: <FcReading />,
     url: "/home",
+  },
+];
+
+export const ItemsCenter = [
+  {
+    id: 1,
+    name: "Ask a Question",
+    icon: <FcCustomerSupport />,
+  },
+  {
+    id: 2,
+    name: "Write a Blog",
+    icon: <FcNook />,
   },
 ];

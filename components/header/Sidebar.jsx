@@ -1,6 +1,9 @@
 import { FaTimes } from "react-icons/fa";
 import Image from "next/image";
-import { Items } from "./HeaderItems";
+import { Items, ItemsCenter } from "./HeaderItems";
+import { useState } from "react";
+import Modal from "./Modal";
+import { FcCustomerSupport, FcNook } from "react-icons/fc";
 
 function Sidebar({ handleSidebar, sideBar, setsideBar }) {
   return (
@@ -43,7 +46,20 @@ function Sidebar({ handleSidebar, sideBar, setsideBar }) {
                 ))}
               </div>
               {/* one ends here */}
-              <div className="grow h-16 md:h-80"></div>
+              <div className="grow h-16 md:h-80 flex items-center">
+                <button className="flex flex-row m-2 items-center hover:bg-slate-600 hover:mr-4 hover:pl-2 hover:rounded-md hover:pb-1">
+                  <span className="pr-2 text-xl">
+                    <FcCustomerSupport />
+                  </span>
+                  <h1 className="text">Ask a Question</h1>
+                </button>
+                <button className="flex flex-row m-2 items-center hover:bg-slate-600 hover:mr-4 hover:pl-2 hover:rounded-md hover:pb-1">
+                  <span className="pr-2 text-xl">
+                    <FcNook />
+                  </span>
+                  <h1 className="text">Write a Blog</h1>
+                </button>
+              </div>
               {/* Two ends here */}
               <div className="">
                 <div className="flex flex-row justify-between items-center">

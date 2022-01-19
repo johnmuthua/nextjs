@@ -1,10 +1,11 @@
 import React from "react";
-import Card from "../components/card/Card";
+import Modal from "../components/header/Modal";
 
 const Test = () => {
   return (
-    <div className="bg-black">
-      <Card />;
+    <div>
+      <h1>Test Page</h1>
+      <Modal />
     </div>
   );
 };

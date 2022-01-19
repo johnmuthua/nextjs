@@ -1,4 +1,6 @@
 import { HiDotsVertical } from "react-icons/hi";
+import { FcLink, FcVoicePresentation, FcLike, FcLeave } from "react-icons/fc";
+
 import Image from "next/image";
 function Card({ feed }) {
   return (
@@ -34,10 +36,19 @@ function Card({ feed }) {
                     className="rounded-lg items-center"
                   />
                 </div>
-                <div className="flex justify-between">
-                  <div className="">{item.views}</div>
-                  <div className="">{item.albumId}</div>
-                  <div className="">{item.upvote}</div>
+                <div className="grid grid-cols-3">
+                  <div className="flex flex-row  pr-1 items-center">
+                    <FcVoicePresentation className="text-4xl" />
+                    {item.answers} Answers
+                  </div>
+                  <div className="flex flex-row  pr-1  items-center">
+                    <FcLink className="text-4xl" />
+                    {item.views} Views
+                  </div>
+                  <div className="flex flex-row  pr-1  items-center">
+                    <FcLike className="text-4xl" />
+                    {item.likes} Likes
+                  </div>
                 </div>
               </div>
             </div>
