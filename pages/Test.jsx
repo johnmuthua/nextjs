@@ -1,11 +1,17 @@
-import React from "react";
-import Modal from "../components/header/Modal";
+import ReactMarkdown from "react-markdown";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+
+import "katex/dist/katex.min.css";
 
 const Test = () => {
   return (
     <div>
-      <h1>Test Page</h1>
-      <Modal />
+      <ReactMarkdown
+        children={`The lift coefficient ($C_L$) is a dimensionless coefficient.`}
+        remarkPlugins={[remarkMath]}
+        rehypePlugins={[rehypeKatex]}
+      />
     </div>
   );
 };

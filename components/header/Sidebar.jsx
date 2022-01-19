@@ -2,7 +2,6 @@ import { FaTimes } from "react-icons/fa";
 import Image from "next/image";
 import { Items, ItemsCenter } from "./HeaderItems";
 import { useState } from "react";
-import Modal from "./Modal";
 import { FcCustomerSupport, FcNook } from "react-icons/fc";
 
 function Sidebar({ handleSidebar, sideBar, setsideBar }) {
