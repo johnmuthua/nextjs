@@ -3,7 +3,6 @@ import Header from "../components/header/Header";
 import Card from "../components/card/Card";
 
 export default function Home({ feed }) {
-  console.log(feed);
   return (
     <div className="bg-gradient-to-b from-stone-700 to-stone-900 pt-12 ">
       <article className="">
