@@ -12,8 +12,8 @@ import { FaTimes } from "react-icons/fa";
 function Modal() {
   const { question, handleClick } = useContext(QuestionPage);
   return (
-    <section>
-      <div className="bg-black bg-opacity-50 absolute inset-0 flex justify-center items-center">
+    <section className="bg-black">
+      <div className="bg-black bg-opacity-90 absolute inset-0 flex  mt-12 md:justify-center md:items-center">
         <form className="bg-white rounded-lg m-2">
           <div className="flex flex-row justify-between m-2">
             <div></div>

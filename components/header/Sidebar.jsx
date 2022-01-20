@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { FaTimes } from "react-icons/fa";
 import Image from "next/image";
 import { Items, ItemsCenter } from "./HeaderItems";
@@ -59,7 +61,9 @@ function Sidebar({ handleSidebar, sideBar, setsideBar }) {
                   <span className="pr-2 text-xl">
                     <FcNook />
                   </span>
-                  <h1 className="text">Write a Blog</h1>
+                  <a href="/writeblog" className="text">
+                    Write a Blog
+                  </a>
                 </button>
               </div>
               {/* Two ends here */}

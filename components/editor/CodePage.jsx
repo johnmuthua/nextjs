@@ -41,6 +41,7 @@ const CodePage = () => {
   useEffect(() => {
     getFromStorage();
   }, []);
+
   return (
     <div>
       <div>{modal ? <Modal /> : null}</div>

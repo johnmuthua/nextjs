@@ -13,7 +13,7 @@ export const Items = [
     id: 1,
     name: "Trending",
     icon: <FcSteam />,
-    url: "/home",
+    url: "/",
   },
   {
     id: 2,
@@ -31,7 +31,7 @@ export const Items = [
     id: 4,
     name: "Home",
     icon: <FcHome />,
-    url: "/home",
+    url: "/",
   },
   {
     id: 5,

@@ -30,7 +30,6 @@ export const QuestionPageProvider = ({ children }) => {
       "2code_blog_content",
       JSON.stringify(question.content)
     );
-    console.log("publisshed");
   };
 
   const value = {
