@@ -3,6 +3,9 @@ import { useContext, useState } from "react";
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
+import rehypeHighlight from "rehype-highlight";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { solarizedlight } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 import { QuestionPage } from "../../context/CodePageContext";
 
@@ -11,10 +14,18 @@ import { FaTimes } from "react-icons/fa";
 
 function Modal() {
   const { question, handleClick } = useContext(QuestionPage);
+  console.log(question.content);
+  const markdown = `Here is some JavaScript code:
+
+~~~js
+console.log('It works!')
+~~~
+`;
+
   return (
-    <section className="bg-black">
-      <div className="bg-black bg-opacity-90 absolute inset-0 flex  mt-12 md:justify-center md:items-center">
-        <form className="bg-white rounded-lg m-2">
+    <section>
+      <div className="bg-black h-full  bg-opacity-90 absolute inset-0 flex  mt-12">
+        <form className="bg-white rounded-lg m-2 overflow-y-auto">
           <div className="flex flex-row justify-between m-2">
             <div></div>
             <div>
@@ -31,6 +42,24 @@ function Modal() {
             <p className="text-lg font-thin">
               <ReactMarkdown
                 children={question.content}
+                components={{
+                  code({ node, inline, className, children, ...props }) {
+                    const match = /language-(\w+)/.exec(className || "");
+                    return !inline && match ? (
+                      <SyntaxHighlighter
+                        children={String(children).replace(/\n$/, "")}
+                        style={solarizedlight}
+                        language={match[1]}
+                        PreTag="div"
+                        {...props}
+                      />
+                    ) : (
+                      <code className={className} {...props}>
+                        {children}
+                      </code>
+                    );
+                  },
+                }}
                 remarkPlugins={[remarkMath]}
                 rehypePlugins={[rehypeKatex]}
               />
