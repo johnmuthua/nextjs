@@ -1027,6 +1027,11 @@
   "resolved" "https://registry.npmjs.org/emojis-list/-/emojis-list-2.1.0.tgz"
   "version" "2.1.0"
 
+"emoticon@^4.0.0":
+  "integrity" "sha512-dqx7eA9YaqyvYtUhJwT4rC1HIp82j5ybS1/vQ42ur+jBe17dJMwZE4+gvL1XadSFfxaPFFGt3Xsw+Y8akThDlw=="
+  "resolved" "https://registry.npmjs.org/emoticon/-/emoticon-4.0.1.tgz"
+  "version" "4.0.1"
+
 "enquirer@^2.3.5":
   "integrity" "sha512-yjNnPr315/FjS4zIsUxYguYUPP2e1NK4d7E7ZOLiyYCcbFBiTMyID+2wvm2w6+pZ/odMA7cRkjhsPbltwBOrLg=="
   "resolved" "https://registry.npmjs.org/enquirer/-/enquirer-2.3.6.tgz"
@@ -1974,6 +1979,11 @@
   "resolved" "https://registry.npmjs.org/lodash.sortby/-/lodash.sortby-4.7.0.tgz"
   "version" "4.7.0"
 
+"lodash@^4.17.21":
+  "integrity" "sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg=="
+  "resolved" "https://registry.npmjs.org/lodash/-/lodash-4.17.21.tgz"
+  "version" "4.17.21"
+
 "loglevel@^1.6.8":
   "integrity" "sha512-G6A/nJLRgWOuuwdNuA6koovfEV1YpqqAG4pRUlFaz3jj2QNZ8M4vBqnVA+HBTmU/AMNUtlOsMmSpF6NyOjztbA=="
   "resolved" "https://registry.npmjs.org/loglevel/-/loglevel-1.8.0.tgz"
@@ -2432,6 +2442,13 @@
     "@next/swc-win32-arm64-msvc" "12.0.8"
     "@next/swc-win32-ia32-msvc" "12.0.8"
     "@next/swc-win32-x64-msvc" "12.0.8"
+
+"node-emoji@^1.11.0":
+  "integrity" "sha512-wo2DpQkQp7Sjm2A0cq+sN7EHKO6Sl0ctXeBdFZrL9T9+UywORbufTcTZxom8YqpLQt/FqNMUkOpkZrJVYSKD3A=="
+  "resolved" "https://registry.npmjs.org/node-emoji/-/node-emoji-1.11.0.tgz"
+  "version" "1.11.0"
+  dependencies:
+    "lodash" "^4.17.21"
 
 "node-fetch@^2.6.1", "node-fetch@2.6.1":
   "integrity" "sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw=="
@@ -2941,6 +2958,15 @@
     "parse5" "^6.0.0"
     "unified" "^10.0.0"
 
+"remark-emoji@^3.0.2":
+  "integrity" "sha512-hEgxEv2sBtvhT3tNG/tQeeFY3EbslftaOoG14dDZndLo25fWJ6Fbg4ukFbIotOWWrfXyASjXjyHT+6n366k3mg=="
+  "resolved" "https://registry.npmjs.org/remark-emoji/-/remark-emoji-3.0.2.tgz"
+  "version" "3.0.2"
+  dependencies:
+    "emoticon" "^4.0.0"
+    "node-emoji" "^1.11.0"
+    "unist-util-visit" "^4.1.0"
+
 "remark-math@^5.1.1":
   "integrity" "sha512-cE5T2R/xLVtfFI4cCePtiRn+e6jKMtFDR3P8V3qpv8wpKjwvHoBA4eJzvX+nVrnlNy0911bdGmuspCSwetfYHw=="
   "resolved" "https://registry.npmjs.org/remark-math/-/remark-math-5.1.1.tgz"
@@ -3439,7 +3465,7 @@
     "unist-util-is" "^5.0.0"
     "unist-util-visit-parents" "^4.0.0"
 
-"unist-util-visit@^4.0.0":
+"unist-util-visit@^4.0.0", "unist-util-visit@^4.1.0":
   "integrity" "sha512-n7lyhFKJfVZ9MnKtqbsqkQEk5P1KShj0+//V7mAcoI6bpbUjh3C/OG8HVD+pBihfh6Ovl01m8dkcv9HNqYajmQ=="
   "resolved" "https://registry.npmjs.org/unist-util-visit/-/unist-util-visit-4.1.0.tgz"
   "version" "4.1.0"

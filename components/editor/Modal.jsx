@@ -2,8 +2,8 @@ import { useContext, useState } from "react";
 
 import ReactMarkdown from "react-markdown";
 import remarkMath from "remark-math";
+import emoji from "remark-emoji";
 import rehypeKatex from "rehype-katex";
-import rehypeHighlight from "rehype-highlight";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { solarizedlight } from "react-syntax-highlighter/dist/esm/styles/prism";
 
@@ -14,13 +14,7 @@ import { FaTimes } from "react-icons/fa";
 
 function Modal() {
   const { question, handleClick } = useContext(QuestionPage);
-  console.log(question.content);
-  const markdown = `Here is some JavaScript code:
-
-~~~js
-console.log('It works!')
-~~~
-`;
+  const { content, title } = question;
 
   return (
     <section>
@@ -38,10 +32,10 @@ console.log('It works!')
             </div>
           </div>
           <div className="p-2 rounded-lg m-1">
-            <h1 className="text-xl">{question.title}</h1>
+            <h1 className="text-xl">{title}</h1>
             <p className="text-lg font-thin">
               <ReactMarkdown
-                children={question.content}
+                children={content}
                 components={{
                   code({ node, inline, className, children, ...props }) {
                     const match = /language-(\w+)/.exec(className || "");
@@ -60,7 +54,7 @@ console.log('It works!')
                     );
                   },
                 }}
-                remarkPlugins={[remarkMath]}
+                remarkPlugins={[remarkMath, emoji]}
                 rehypePlugins={[rehypeKatex]}
               />
             </p>
