@@ -18,6 +18,7 @@ const CodePage = () => {
     handleClick,
     modal,
     handleSave,
+    handleDelete,
   } = useContext(QuestionPage);
 
   const getFromStorage = () => {
@@ -109,7 +110,10 @@ const CodePage = () => {
                   >
                     <FiSave className="mr-1" /> Save
                   </button>
-                  <button className="px-4 py-2 bg-red-500 text-sm text-white  rounded-md flex justify-center items-center hover:bg-transparent hover:text-green-500">
+                  <button
+                    onClick={handleDelete}
+                    className="px-4 py-2 bg-red-500 text-sm text-white  rounded-md flex justify-center items-center hover:bg-transparent hover:text-green-500"
+                  >
                     <RiDeleteBin2Fill className="mr-1" /> Delete
                   </button>
                 </div>

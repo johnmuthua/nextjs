@@ -32,6 +32,19 @@ export const QuestionPageProvider = ({ children }) => {
     );
   };
 
+  const handleDelete = (e) => {
+    e.preventDefault();
+    console.log("on on delete");
+
+    localStorage.removeItem("2code_blog_title");
+    localStorage.removeItem("2code_blog_content");
+    const question = {
+      title: "",
+      content: "",
+    };
+    setQuestion(question);
+  };
+
   const value = {
     question,
     setQuestion,
@@ -39,6 +52,7 @@ export const QuestionPageProvider = ({ children }) => {
     handleClick,
     modal,
     handleSave,
+    handleDelete,
   };
   return (
     <QuestionPage.Provider value={value}>{children}</QuestionPage.Provider>
