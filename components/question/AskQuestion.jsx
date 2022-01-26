@@ -23,7 +23,7 @@ const AskQuestion = () => {
     <div>
       <div>{modal ? <Modal /> : null}</div>
 
-      <section className="m-0 p-0">
+      <section className="m-0 p-0 pt-10">
         <div className="bg-black">
           <form className="bg-white rounded-lg m-2 p-2">
             <div className="flex flex-row justify-between m-2 p-2">
@@ -38,10 +38,7 @@ const AskQuestion = () => {
                 </div>
               </div>
               <div>
-                <button
-                  // onClick={}
-                  className="px-4 py-2 bg-green-500 text-sm text-white  rounded-md flex justify-center items-center hover:bg-transparent hover:text-green-500"
-                >
+                <button className="px-4 py-2 bg-green-500 text-sm text-white  rounded-md flex justify-center items-center hover:bg-transparent hover:text-green-500">
                   <AiOutlineAlignLeft className="mr-1" /> Publish
                 </button>
               </div>
@@ -72,7 +69,7 @@ const AskQuestion = () => {
                     type="text"
                     onChange={handleOnChange}
                     value={question.content}
-                    placeholder="Write your blog here"
+                    placeholder="Write your Question here"
                     rows="8"
                     required
                     className="block p-4 w-full text-gray-900 bg-gray-50 rounded-lg border border-gray-300 font-thin text-xs md:text-lg focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
