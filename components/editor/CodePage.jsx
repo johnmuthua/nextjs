@@ -30,7 +30,6 @@ const CodePage = () => {
         content: "",
       };
       setQuestion(question);
-      console.log(question);
     } else {
       question = {
         title: JSON.parse(title),

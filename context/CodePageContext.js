@@ -34,7 +34,6 @@ export const QuestionPageProvider = ({ children }) => {
 
   const handleDelete = (e) => {
     e.preventDefault();
-    console.log("on on delete");
 
     localStorage.removeItem("2code_blog_title");
     localStorage.removeItem("2code_blog_content");

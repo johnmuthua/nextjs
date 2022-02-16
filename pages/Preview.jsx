@@ -9,7 +9,6 @@ import { useContext, useState } from "react";
 
 function Preview() {
   const { question, handleOnChange } = useContext(QuestionPage);
-  console.log(question);
   const text = "$f(x)=12^3x + 2_8log12$";
   return (
     <section>

@@ -60,16 +60,17 @@ export const typeDefs = gql`
   }
   type BlogPost {
     id: ID!
-    title: String
-    body: String
-    slug: String
+    title: String!
+    body: String!
+    slug: String!
     createdAt: String
     updateAt: String
     likes: Int
     views: Int
     tags: String
     category: String
-    author: User
+    authorId: String!
+    author: String!
     published: String
     comments: [String]
   }
@@ -93,11 +94,23 @@ export const typeDefs = gql`
     tech: String
     author: User
   }
+
   type Query {
     question: [Question]!
     profile: [Profile]!
     blogPosts: [BlogPost]!
     blogPost: BlogPost!
-    user: [User]!
+    users: [User]!
+    user(id: ID!): User
+  }
+
+  type Mutation {
+    createBlogPostDraft(
+      title: String!
+      body: String!
+      author: String!
+      slug: String!
+    ): BlogPost
+    publishBlogPost(id: ID): BlogPost
   }
 `;

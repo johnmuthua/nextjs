@@ -42,9 +42,9 @@ id String @id @default(cuid())
   slug String @unique
   createdAt DateTime @default(now())
   updateAt DateTime @updatedAt
-  likes Int
-  views Int
-  tags String
+  likes Int?
+  views Int?
+  tags String?
   category Level @default(BEGINNER)
   published Status @default(DRAFT)
   Answers Answer[]
@@ -111,9 +111,9 @@ id String @id @default(cuid())
   slug String @unique
   createdAt DateTime @default(now())
   updateAt DateTime @updatedAt
-  likes Int
-  views Int
-  tags String
+  likes Int?
+  views Int?
+  tags String?
   category Level @default(BEGINNER)
   published Status @default(DRAFT)
   comments BlogComment[]
